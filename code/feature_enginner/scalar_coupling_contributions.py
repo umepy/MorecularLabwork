@@ -30,7 +30,7 @@ import time
 
 
 def contribution():
-    scc_df = pd.read_csv('../data/scalar_coupling_contributions.csv')
+    scc_df = pd.read_csv('data/scalar_coupling_contributions.csv')
     scc_contribution = scc_df[['fc','sd','pso','dso']].values
     return scc_contribution, ['fc','sd','pso','dso']
 

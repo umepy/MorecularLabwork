@@ -8,12 +8,13 @@ import time
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import KFold
 import lightgbm as lgb
+from main_merge import merge_features
 
 
 train_df = pd.read_csv('data/train.csv')
 structure_df = pd.read_csv('data/structures.csv')
 
-X = pd.read_pickle('result/train_X.pkl')
+X, names = merge_features()
 y = train_df.values[:,-1]
 
 def Evaluation(y, pred):
