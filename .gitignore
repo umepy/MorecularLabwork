@@ -1,0 +1,9 @@
+data/test.csv
+data/magnetic_shielding_tensors.csv
+data/train.csv
+data/mulliken_charges.csv
+data/potential_energy.csv
+data/structures.csv
+data/scalar_coupling_contributions.csv
+data/sample_submission.csv
+data/dipole_moments.csv
