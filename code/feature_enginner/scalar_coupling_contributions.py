@@ -15,7 +15,7 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
 
 import os
-print(os.listdir("../data/"))
+#print(os.listdir("../data/"))
 
 import matplotlib.pyplot as plt
 import pickle
@@ -23,45 +23,7 @@ from tqdm import tqdm
 from multiprocessing import Process, Pipe
 import time
 # Any results you write to the current directory are saved as output.
-get_ipython().run_line_magic('matplotlib', 'inline')
-
-
-# In[2]:
-
-
-jobs = 10
-
-
-# In[3]:
-
-
-train_df = pd.read_csv('../data/train.csv')
-scc_df = pd.read_csv('../data/scalar_coupling_contributions.csv')
-
-
-# In[4]:
-
-
-train_df.head(10)
-
-
-# In[5]:
-
-
-scc_df.head(10)
-
-
-# In[6]:
-
-
-train_df.shape, scc_df.shape
-
-
-# In[8]:
-
-
-scc_arr = scc_df[['fc','sd','pso','dso']].values
-scc_arr.shape
+#%matplotlib inline
 
 
 # In[9]:
@@ -71,10 +33,4 @@ def contribution():
     scc_df = pd.read_csv('../data/scalar_coupling_contributions.csv')
     scc_contribution = scc_df[['fc','sd','pso','dso']].values
     return scc_contribution, ['fc','sd','pso','dso']
-
-
-# In[10]:
-
-
-contribution()
 
