@@ -13,10 +13,10 @@ import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 
 def potential_energy():
     
-    potential_energy_df = pd.read_csv('../../data/potential_energy.csv')
+    potential_energy_df = pd.read_csv('data/potential_energy.csv')
     print(potential_energy_df.columns)
     potential_energy = potential_energy_df[['potential_energy']].values
-    return potential_energy
+    return potential_energy, ['potential_energy']
 
 
 # In[ ]:
