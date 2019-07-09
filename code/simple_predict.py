@@ -17,6 +17,13 @@ structure_df = pd.read_csv('data/structures.csv')
 X, names = merge_features()
 y = train_df.values[:,-1]
 
+def Feature_importance(fti, names):
+    dic = {}
+    for i in range(len(fti)):
+        dic[names[i]] = fti[i]
+    for k, v in sorted(dic.items(),key=lambda x :x[1], reverse=True):
+        print(str(k) + ": " + str(v))
+
 def Evaluation(y, pred):
     types = train_df['type'].values
     dic = {'1JHC':[], '2JHH':[], '1JHN':[], '2JHN':[], '2JHC':[], '3JHH':[], '3JHC':[], '3JHN':[]}
@@ -40,5 +47,7 @@ for train_idx, test_idx in tqdm(kf.split(X), total=10):
     model.fit(train_X, train_y)
     pred = model.predict(test_X)
     score.append(Evaluation(test_y, pred))
-print(score)
-print(np.mean(score))
+
+print('10-Fold score:', np.mean(score))
+print('Feature Importance')
+Feature_importance(model.feature_importances_, names)

@@ -10,9 +10,9 @@ def merge_features():
     names = []
 
     # READ each features
-    #data, name = atom_distance()
-    #train_X.append(data)
-    #names.extend(name)
+    data, name = atom_distance()
+    train_X.append(data)
+    names.extend(name)
 
     data, name = contribution()
     train_X.append(data)
