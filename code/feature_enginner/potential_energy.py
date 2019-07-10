@@ -16,6 +16,7 @@ def potential_energy():
     potential_energy_df = pd.read_csv('data/potential_energy.csv')
     print(potential_energy_df.columns)
     potential_energy = potential_energy_df[['potential_energy']].values
+    potential_energy = potential_energy.reshape(len(potential_energy),1)
     return potential_energy, ['potential_energy']
 
 
