@@ -7,6 +7,7 @@ data/structures.csv
 data/scalar_coupling_contributions.csv
 data/sample_submission.csv
 data/dipole_moments.csv
+tmp_data/*.pkl
 
 .vscode
 *.pyc
