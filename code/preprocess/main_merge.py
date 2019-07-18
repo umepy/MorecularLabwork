@@ -1,17 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+# In[1]:
+
+
 import numpy as np
 import time
-from atom_distance import atom_distance
-from atom_weight import get_atom_weight
-from atom_weight import atom_weight_product
-from scalar_coupling_contribution import get_fermi_contact
-from scalar_coupling_contribution import get_spin_dipolar
-from scalar_coupling_contribution import get_p_spin_orbit
-from scalar_coupling_contribution import get_d_spin_orbit
-from mulliken_charge import get_mulliken_charge
-from potential_energy import get_potential_energy
+import normal_feature
 from file_read import get_df
 
 '''
@@ -32,38 +27,32 @@ def merge_features():
     start = time.time()
     train_X = []
     names = []
-    list_df = get_df(['scalar_coupling_contributions'])
+    list_df = get_df(['train', 'scalar_coupling_contributions'])
+    get_feature = normal_feature.normal_feature(list_df[0])
+    
 
     #READ each features
-    data, name = atom_distance()
+    data, name = get_feature.atom_distance()
     train_X.append(data)
     names.extend(name)
     
-    data, name = get_atom_weight()
-    train_X.append(data)
-    names.extend(name)
+#     data, name = get_feature.get_atom_weight()
+#     train_X.append(data)
+#     names.extend(name)
 
-#     data, name = get_fermi_contact(list_df[0])
+#     data, name = get_feature.get_fermi_contact(list_df[1])
 #     train_X.append(data)
 #     names.extend(name)
     
-#     data, name = get_spin_dipolar(list_df[0])
+#     data, name = get_feature.get_spin_dipolar(list_df[1])
 #     train_X.append(data)
 #     names.extend(name)
     
-#     data, name = get_p_spin_orbit(list_df[0])
+#     data, name = get_feature.get_p_spin_orbit(list_df[1])
 #     train_X.append(data)
 #     names.extend(name)
     
-#     data, name = get_d_spin_orbit(list_df[0])
-#     train_X.append(data)
-#     names.extend(name)
-    
-#     data, name = get_mulliken_charge()
-#     train_X.append(data)
-#     names.extend(name)
-    
-#     data, name = get_potential_energy()
+#     data, name = get_feature.get_d_spin_orbit(list_df[1])
 #     train_X.append(data)
 #     names.extend(name)
     
