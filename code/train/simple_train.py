@@ -16,7 +16,9 @@ from sklearn.model_selection import KFold
 from sklearn.metrics import mean_squared_error
 from sklearn.metrics import mean_absolute_error
 import lightgbm as lgb
+#sys.path.append(os.getcwd()+'/code/preprocess/')
 sys.path.append('../preprocess/')
+print(sys.path)
 from main_merge import merge_features
 from file_read import get_df
 
