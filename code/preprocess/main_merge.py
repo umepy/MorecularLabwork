@@ -8,6 +8,7 @@ import numpy as np
 import time
 import normal_feature
 from file_read import get_df
+from scalar_coupling_contribution import get_fermi_contact
 
 '''
 get_df() : read file and return dataframe
@@ -36,13 +37,17 @@ def merge_features():
     train_X.append(data)
     names.extend(name)
     
-#     data, name = get_feature.get_atom_weight()
-#     train_X.append(data)
-#     names.extend(name)
+    data, name = get_feature.get_atom_weight()
+    train_X.append(data)
+    names.extend(name)
+    
+    data, name = get_feature.get_atom_gyromagnetic_ratio()
+    train_X.append(data)
+    names.extend(name)
 
-#     data, name = get_feature.get_fermi_contact(list_df[1])
-#     train_X.append(data)
-#     names.extend(name)
+    data, name = get_fermi_contact(list_df[1])
+    train_X.append(data)
+    names.extend(name)
     
 #     data, name = get_feature.get_spin_dipolar(list_df[1])
 #     train_X.append(data)
@@ -52,9 +57,30 @@ def merge_features():
 #     train_X.append(data)
 #     names.extend(name)
     
-#     data, name = get_feature.get_d_spin_orbit(list_df[1])
+#     data, name = get_feature.get_atom_angle()
 #     train_X.append(data)
 #     names.extend(name)
+
+#     data, name = get_feature.get_atom_angle_diff()
+#     train_X.append(data)
+#     names.extend(name)
+
+#     data, name = get_feature.get_atom_x_diff()
+#     train_X.append(data)
+#     names.extend(name)
+    
+#     data, name = get_feature.get_atom_y_diff()
+#     train_X.append(data)
+#     names.extend(name)
+    
+#     data, name = get_feature.get_atom_z_diff()
+#     train_X.append(data)
+#     names.extend(name)
+
+    data, name = get_feature.get_atom_num()
+    train_X.append(data)
+    names.extend(name)
+
     
     train_X = np.hstack(train_X)
     print('Finish Preprocess:{0:.1f} sec'.format(time.time()-start))
